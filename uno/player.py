@@ -10,3 +10,6 @@ class Player:
 
     def __repr__(self):
         return f"Player({self.__id})"
+
+    def draw(self, deck: List[Card]) -> None:
+        self.__hand.append(deck.pop(0))
