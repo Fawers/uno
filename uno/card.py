@@ -6,7 +6,7 @@ class CardColor(IntFlag):
     GREEN = 2
     BLUE = 4
     YELLOW = 8
-    ANY = 15
+    ANY = RED | GREEN | BLUE | YELLOW
 
 
 class Card:
@@ -21,3 +21,6 @@ class Card:
     @property
     def color(self):
         return self.__color
+
+    def can_be_placed_onto(self, card: 'Card') -> bool:
+        return self.color in card.color and self.face == card.face
