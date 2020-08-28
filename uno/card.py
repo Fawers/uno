@@ -23,4 +23,4 @@ class Card:
         return self.__color
 
     def can_be_placed_onto(self, card: 'Card') -> bool:
-        return self.color in card.color and self.face == card.face
+        return self.color in card.color or self.face == card.face
