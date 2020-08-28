@@ -24,3 +24,6 @@ class Card:
 
     def can_be_placed_onto(self, card: 'Card') -> bool:
         return self.color in card.color or self.face == card.face
+
+    def __repr__(self):
+        return f"Card({self.face}, {self.color.name})"
