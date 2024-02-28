@@ -9,6 +9,15 @@ class CardColor(IntFlag):
     ANY = RED | GREEN | BLUE | YELLOW
 
 
+class CardEffect(IntFlag):
+    SKIP = 0x10
+    TAKE_2 = 0x20
+    TAKE_4 = 0x40
+    TAKE_2_OR_4 = TAKE_2 | TAKE_4
+    INVERT_DIRECTION = 0x80
+    CHANGE_COLOR = 0x100
+
+
 class Card:
     def __init__(self, face: int, color: CardColor):
         self.__face = face
@@ -27,3 +36,9 @@ class Card:
 
     def __repr__(self):
         return f"Card({self.face}, {self.color.name})"
+
+
+class SpecialCard(Card):
+    @property
+    def face(self):
+        return self.__face.name  # comes from CardEffect
